@@ -7,20 +7,16 @@ import {
     Burger,
     Paper,
     Transition,
-    rem,
+    rem, Button,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import Logo from "./Logo.jsx";
-import {IconActivity, IconFingerprint, IconGauge} from "@tabler/icons-react";
+import Logo from "../logos/Logo.jsx";
+import { IconDownload } from "@tabler/icons-react";
+import resume from "../../assets/tanner-oconnor-resume.pdf";
 
 export const HEADER_HEIGHT = rem(60);
 
 const useStyles = createStyles((theme) => ({
-    root: {
-        position: 'relative',
-        zIndex: 1,
-    },
-
     dropdown: {
         position: 'absolute',
         top: HEADER_HEIGHT,
@@ -42,12 +38,14 @@ const useStyles = createStyles((theme) => ({
         justifyContent: 'space-between',
         alignItems: 'center',
         height: '100%',
+        width: "vw"
     },
 
     links: {
         [theme.fn.smallerThan('sm')]: {
             display: 'none',
         },
+
     },
 
     burger: {
@@ -85,14 +83,14 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const data = [
-    { icon: IconGauge, label: 'About Me', link: "about-me" },
-    { icon: IconFingerprint, label: 'Projects', link: "projects" },
-    { icon: IconActivity, label: 'Contact', link: "contact" },
+    { label: 'Work', link: "work" },
+    { label: 'About', link: "about" },
+    { label: 'Contact', link: "contact" },
 ];
 
-export function PortfolioHeader() {
+export function PortfolioHeader(props) {
     const [opened, { toggle, close }] = useDisclosure(false);
-    const [active, setActive] = useState(data[0].link);
+    const [active, setActive] = useState(props.activePage);
     const { classes, cx } = useStyles();
 
     const items = data.map((link) => (
@@ -103,6 +101,7 @@ export function PortfolioHeader() {
             onClick={(event) => {
                 event.preventDefault();
                 setActive(link.link);
+                props.handlePageChange(link.link)
                 close();
             }}
         >
@@ -111,11 +110,21 @@ export function PortfolioHeader() {
     ));
 
     return (
-        <Header height={HEADER_HEIGHT} mb={120} className={classes.root} fixed={true}>
+        <Header height="80px" fixed={true}>
             <Container className={classes.header}>
                 <Logo width="200px" />
                 <Group spacing={5} className={classes.links}>
                     {items}
+                    <Button
+                        key="resume"
+                        target="_blank"
+                        component="a"
+                        variant="filled"
+                        href={resume}
+                        leftIcon={<IconDownload size="1rem"/>}
+                        size="xs">
+                        Resume
+                    </Button>
                 </Group>
 
                 <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
@@ -129,5 +138,6 @@ export function PortfolioHeader() {
                 </Transition>
             </Container>
         </Header>
+
     );
 }

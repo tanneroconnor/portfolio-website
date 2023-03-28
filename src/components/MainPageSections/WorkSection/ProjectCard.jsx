@@ -1,10 +1,10 @@
-import { Card, Image, Text, Badge, Group } from '@mantine/core';
+import { Card, Image, Text, Badge } from '@mantine/core';
 
 export default function ProjectCard(props) {
 
-    const badges = props.technologies.map(technology => {
+    const badges = props.technologies.map((technology, index)=> {
         return (
-            <Badge size="lg" style={{margin: "10px"}}>
+            <Badge key={index} size="lg" style={{margin: "10px"}}>
                 {technology}
             </Badge>
         )
@@ -14,15 +14,15 @@ export default function ProjectCard(props) {
         <Card shadow="sm" padding="lg" radius="md" withBorder>
             <Card.Section>
                 <Image
-                    src={props.link}
-                    height={160}
+                    src={props.src}
+                    height={"300px"}
                     alt={props.alt}
                 />
             </Card.Section>
 
-            <Text weight={700}>{props.title}</Text>
+            <Text size="lg" weight={700} style={{margin: "10px"}}>{props.title}</Text>
 
-            <Text size="sm" color="dimmed">
+            <Text size="sm" color="dimmed" style={{margin: "10px"}}>
                 {props.description}
             </Text>
             {badges}

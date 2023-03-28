@@ -1,18 +1,12 @@
-import {Navbar, Group, Code, createStyles, NavLink, Avatar, Text} from '@mantine/core';
+import {Navbar, Group, createStyles, NavLink, Avatar, Text} from '@mantine/core';
 import {
     IconActivity,
     IconFingerprint,
     IconGauge,
 } from '@tabler/icons-react';
-import Logo from "./Logo.jsx";
+import Logo from "../logos/Logo.jsx";
 import {useState} from "react";
 import {useViewportSize} from "@mantine/hooks";
-
-const data = [
-    { icon: IconGauge, label: 'About Me' },
-    { icon: IconFingerprint, label: 'Projects' },
-    { icon: IconActivity, label: 'Contact' },
-];
 
 const useStyles = createStyles((theme) => ({
     navbar: {
@@ -38,6 +32,12 @@ const useStyles = createStyles((theme) => ({
         padding: "10px"
     },
 }));
+
+const data = [
+    { icon: IconGauge, label: 'About Me' },
+    { icon: IconFingerprint, label: 'Projects' },
+    { icon: IconActivity, label: 'Contact' },
+];
 
 export default function MyNavbar() {
 
@@ -65,7 +65,6 @@ export default function MyNavbar() {
             <Navbar.Section className={classes.header}>
                 <Group position="apart">
                     <Logo width="200px" />
-                    {/*<Code sx={{ fontWeight: 700 }}>v2.0.0</Code>*/}
                 </Group>
             </Navbar.Section>
             <Navbar.Section grow className={classes.links} >
