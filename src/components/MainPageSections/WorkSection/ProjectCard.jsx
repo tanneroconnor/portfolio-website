@@ -13,11 +13,13 @@ export default function ProjectCard(props) {
     return (
         <Card shadow="sm" padding="lg" radius="md" withBorder>
             <Card.Section>
-                <Image
-                    src={props.src}
-                    height={"300px"}
-                    alt={props.alt}
-                />
+                <a href={props.link} target="_blank">
+                    <Image
+                        src={props.src}
+                        height={"300px"}
+                        alt={props.alt}
+                    />
+                </a>
             </Card.Section>
 
             <Text size="lg" weight={700} style={{margin: "10px"}}>{props.title}</Text>
