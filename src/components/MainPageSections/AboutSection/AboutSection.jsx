@@ -25,19 +25,19 @@ const useStyles = createStyles(() => ({
 
 const data = {
     titleText: "Tanner O'Connor",
-    openingText: "Over a year ago, I made the exciting decision to switch careers " +
-        "and pursue my passion for software development. Since then, I've taken a disciplined approach to my learning journey, " +
-        "using a variety of resources to deepen my understanding. In addition to courses on Object Oriented Programming, Java, " +
-        "Data Structures, the Spring Framework, Web Development, React, SQL, Git, and Python, I've also read books, " +
-        "consulted documentation, and actively sought out opportunities to" +
-        " practice my skills and deepen my understanding. Thanks to this proactive approach, I've been able to " +
-        "create self-directed projects that I'm proud of.",
+    openingText: "Over a year ago, I made the exciting decision to switch careers and pursue my passion " +
+        "for software development. Since then, I've taken a disciplined approach to my learning journey and used a " +
+        "variety of resources to expand my knowledge. In addition to my B.A. in Mathematics, I’ve taken courses on: " +
+        "Object Oriented Programming, Java, Data Structures, the Spring Framework, Web Development, React, SQL, Git, " +
+        "and Python. I've also read books, consulted documentation, and actively sought out opportunities to practice " +
+        "my skills and deepen my understanding. Thanks to this proactive approach, " +
+        "I've been able to create self-directed, full-stack projects that I'm proud of.",
 
     hobbiesTitle: "When I'm not programming, you can find me: ",
     listOfHobbies:
         <ul>
             <li>Spending quality time with quality people</li>
-            <li>Composing, making music and playing guitar</li>
+            <li>Composing, making music, and playing guitar</li>
             <li>Honing the art of brewing coffee</li>
             <li>Playing the bots on chess.com</li>
             <li>Most recently, learning how to properly swing a golf club</li>
